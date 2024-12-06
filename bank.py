@@ -1,87 +1,42 @@
 class Bank:
-    """
-    A simple Bank class that allows a user to manage their balance by 
-    depositing, withdrawing, and checking their balance.
-
-    Attributes:
-        balance (float): The current balance in the bank account.
-    """
-
+    # this initializes the bank class
     def __init__(self, balance):
-        """
-        Initializes the Bank object with a specified balance.
-
-        Args:
-            balance (float): Initial balance for the account.
-        """
-        self.balance = balance
-
+        self.balance=balance
     def deposit(self, amount=0):
-        """
-        Deposits a specified amount into the account.
-
-        Args:
-            amount (float): The amount to deposit. Must be non-negative.
-        """
-        if amount >= 0:
-            self.balance += amount
-
+        # this function deposits money to the bank acount
+        if amount>=0:
+            self.balance+=amount
     def withdraw(self, amount=0):
-        """
-        Withdraws a specified amount from the account.
-
-        Args:
-            amount (float): The amount to withdraw. Must be non-negative.
-        """
-        if amount >= 0:
-            self.balance -= amount
-
+        # this function withdraws money from the bank acount
+        if amount>=0:
+            self.balance-=amount
     def getBalance(self):
-        """
-        Prints and returns the current balance.
-
-        Returns:
-            float: The current balance in the account.
-        """
-        print(f"Your balance is {self.balance}")
+        # this function tells you your curent balance
         return self.balance
+bank1= Bank(100)
 
-
-# Main program to interact with the Bank class
-bank1 = Bank(100)  # Create a Bank instance with an initial balance of 100
-
-active = True
+active=True
 while active:
-    ask = input(
-        "Would you like to:\n"
-        "1) Deposit\n"
-        "2) Withdraw\n"
-        "3) Check your balance\n"
-        "4) Exit\n"
-        "Enter the number of your choice: "
-    )
-
-    if ask == "1":
-        try:
-            dep = float(input("How much would you like to deposit? "))
-            bank1.deposit(dep)
-        except ValueError:
-            print("Please enter a valid number.")
-
-    elif ask == "2":
-        try:
-            wit = float(input("How much would you like to withdraw? "))
-            bank1.withdraw(wit)
-        except ValueError:
-            print("Please enter a valid number.")
-
-    elif ask == "3":
-        bank1.getBalance()
-
-    elif ask == "4":
-        print("Goodbye!")
-        active = False
-
+    # the while loop lets us run the program until the user wants to close it
+    # the input function is the menu for the project
+    userinput=input("""would you like to:
+                1)deposit
+                2)withdraw
+                3)get your balence
+                x)type anything else to exit the program
+                    """)
+    if userinput==1:
+        # this asks the user how much they would like to deposit and deposits it
+        depAmount=input("how much would you like to deposit: ")
+        bank1.deposit(depAmount)
+    elif userinput==2:
+        # this asks the user how much they would like to withdraw and withdraws it
+        drawAmount=input("how much would you like to withdraw: ")
+        bank1.withdraw(drawAmount)
+    elif userinput==3:
+        # this tells you your curent balance
+        balance=bank1.getBalance
+        print(f"your balance is {balance}")
     else:
-        print("Please enter a number within the valid range.")
-
+        # this ends the program
+        active=False
