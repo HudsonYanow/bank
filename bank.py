@@ -1,3 +1,5 @@
+import BL as bl
+
 class Bank:
     # this initializes the bank class
     def __init__(self, balance):
@@ -24,18 +26,18 @@ while active:
                 2)withdraw
                 3)get your balence
                 x)type anything else to exit the program
-                    """)
-    if userinput==1:
+                """)
+    if userinput=="1":
         # this asks the user how much they would like to deposit and deposits it
-        depAmount=input("how much would you like to deposit: ")
+        depAmount=bl.intInputValidator("how much would you like to deposit: ","please only use numbers: ")
         bank1.deposit(depAmount)
-    elif userinput==2:
+    elif userinput=="2":
         # this asks the user how much they would like to withdraw and withdraws it
-        drawAmount=input("how much would you like to withdraw: ")
+        drawAmount=bl.intInputValidator("how much would you like to withdraw: ","please only use numbers: ")
         bank1.withdraw(drawAmount)
-    elif userinput==3:
+    elif userinput=="3":
         # this tells you your curent balance
-        balance=bank1.getBalance
+        balance=bank1.getBalance()
         print(f"your balance is {balance}")
     else:
         # this ends the program
