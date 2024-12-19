@@ -3,13 +3,28 @@ class Bank:
     def __init__(self, balance):
         self.balance=balance
     def deposit(self, amount=0):
-        # this function deposits money to the bank acount
+        """
+        deposits money to the acount
+
+        Args:
+        amount(int): amount being deposited
+        """
         if amount>=0:
             self.balance+=amount
     def withdraw(self, amount=0):
-        # this function withdraws money from the bank acount
+        """
+        withdraws money from the account
+
+        Args:
+        amount(int): amount being withdrawed
+        """
         if amount>=0:
             self.balance-=amount
     def getBalance(self):
-        # this function tells you your curent balance
+        """
+        returns the current balance of your account
+
+        Returns:
+        self.balance(int): returns the balance of account
+        """
         return self.balance
